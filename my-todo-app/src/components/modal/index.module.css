@@ -1,0 +1,49 @@
+.wrap {
+    background: rgba(108, 108, 108, 0.4); /* Полупрозрачный белый фон */
+    position: fixed; /* Закрепляет элемент относительно окна браузера */
+    width: 200%; /* Ширина на 100% от ширины окна */
+    height: 200%; /* Высота на 100% от высоты окна */
+    z-index: 5; /* Поверх остальных элементов */
+    top: 0; /* Начало от верхнего края окна */
+    left: 0; /* Начало от левого края окна */
+    display: flex; /* Используем flexbox для центрирования содержимого */
+    align-items: center; /* Вертикальное центрирование содержимого */
+    justify-content: center; /* Горизонтальное центрирование содержимого */
+  }
+
+  .content {
+    border: 1px solid;
+    position: relative;
+    background: rgba(255, 255, 255, 1);
+    border-radius: 5px;
+    padding: 10px 40px 20px 20px;
+  }
+  
+  .closeButton {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    margin: 0;
+    right: 0;
+    top: 0;
+    border: none;
+    cursor: pointer;
+    background: none;
+    color: rgb(0, 0, 0, 0.6);
+  }
+  
+  .closeButton:hover {
+    color: rgb(0, 0, 0, 1);
+  }
+  
+  .title {
+    margin: 0 0 10px;
+    font-family: "SF Pro";
+    font-style: normal;
+    font-weight: 800;
+    font-size: 16px;
+    line-height: 20px;
+    color: black;
+  }
+  

@@ -1,0 +1,73 @@
+/* styles.css */
+
+/* Общие стили для приложения */
+.App {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+  }
+  
+  /* Стили для таблицы */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+  }
+  
+  th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  th {
+    background-color: #f4f4f4;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  td:hover {
+    background-color: #f1f1f1;
+    cursor: pointer;
+  }
+  
+  .active-cell {
+    background-color: #555555;
+  }
+  
+  /* Стили для модального окна */
+  .Modal_wrap__2a8jJ {
+    position: fixed; /* Модальное окно фиксировано относительно экрана */
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    left: 0;
+  }
+  
+  .Modal_content__1aG0L {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 500px;
+    width: auto;
+    position: absolute; /* Позиционирование модального окна */
+  }
+  
+  .Modal_closeButton__3NfF1 {
+    background: transparent;
+    border: none;
+    font-size: 24px;
+    color: #333;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+  
+  .Modal_title__3xN4h {
+    font-size: 20px;
+    margin: 0 0 20px;
+  }
