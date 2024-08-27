@@ -1,22 +1,12 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
-import type { MouseEventHandler, CSSProperties } from "react";
-
-import Portal, { createContainer } from "../portal";
-
+import React, { useEffect, useRef, useState } from "react";
+import { createContainer } from "../portal/createContainer";
+import { Portal } from "../portal/index";
 import Styles from "./index.module.css";
+import type { ModalProps } from "./types";
 
 const MODAL_CONTAINER_ID = "modal-container-id";
 
-type Props = {
-  title: string;
-  onClose?: () => void;
-  children: React.ReactNode | React.ReactNode[];//////// з
-  style?: CSSProperties; // Добавлено свойство style
-};
-
-const Modal = (props: Props) => {
-
-  const { title, onClose, children, style } = props;
+const Modal: React.FC<ModalProps> = ({ title, onClose, children, style }) => {
   const rootRef = useRef<HTMLDivElement>(null);
   const [isMounted, setMounted] = useState(false);
 
@@ -27,13 +17,15 @@ const Modal = (props: Props) => {
 
   useEffect(() => {
     const handleWrapperClick = (event: MouseEvent) => {
-      const { target } = event;
-      if (target instanceof Node && rootRef.current === target) {
+      if (rootRef.current && rootRef.current === event.target) {
+        console.log('ssssssssss')
         onClose?.();
       }
     };
+
     const handleEscapePress = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
+        console.log('sssssssss22222s')
         onClose?.();
       }
     };
@@ -45,8 +37,7 @@ const Modal = (props: Props) => {
       window.removeEventListener("click", handleWrapperClick);
       window.removeEventListener("keydown", handleEscapePress);
     };
-  }, []);
-
+  }, [onClose]);
 
   return isMounted ? (
     <Portal id={MODAL_CONTAINER_ID}>
@@ -55,7 +46,10 @@ const Modal = (props: Props) => {
           <button
             type="button"
             className={Styles.closeButton}
-            onClick={onClose}
+            onClick={() => {
+              console.log("Close button clicked");
+              onClose?.();
+            }}
             data-testid="modal-close-button"
           >
             Х
