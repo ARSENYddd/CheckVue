@@ -9,29 +9,45 @@ const Table: React.FC<TableProps> = ({ data, activeCell, handleCellClick }) => (
         <th>ФИО</th>
         <th>Дата 1</th>
         <th>Дата 2</th>
+        <th>Дата 3</th>
+        <th>Дата 4</th>
       </tr>
     </thead>
     <tbody>
-      {data.map((row, rowIndex) => (
-        <tr key={rowIndex}>
+      {data.map((row) => (
+        <tr key={String(row.id)}> {/* Используем row.id для уникального ключа */}
           <td
             className={activeCell?.textContent === row.name ? styles.activeCell : ""}
             onClick={(event) => handleCellClick(event, row.name, row.name, "ФИО")}
           >
             {row.name}
           </td>
+          
           <td
-            className={activeCell?.textContent === row.date1 ? styles.activeCell : ""}
-            onClick={(event) => handleCellClick(event, row.date1, row.name, "Дата 1")}
+            className={activeCell?.textContent === String(row.date[0]) ? styles.activeCell : ""}
+            onClick={(event) => handleCellClick(event, row.date, row.name, "Дата 1")}
           >
-            {row.date1}
+            {row.date[0]}
           </td>
           <td
-            className={activeCell?.textContent === row.date2 ? styles.activeCell : ""}
-            onClick={(event) => handleCellClick(event, row.date2, row.name, "Дата 2")}
+            className={activeCell?.textContent === String(row.date[1]) ? styles.activeCell : ""}
+            onClick={(event) => handleCellClick(event, row.date, row.name, "Дата 2")}
           >
-            {row.date2}
+            {row.date[1]}
           </td>
+          <td
+            className={activeCell?.textContent === String(row.date[2])? styles.activeCell : ""}
+            onClick={(event) => handleCellClick(event, row.date, row.name, "Дата 3")}
+          >
+            {row.date[2]}
+          </td>
+          <td
+            className={activeCell?.textContent === String(row.date[3]) ? styles.activeCell : ""}
+            onClick={(event) => handleCellClick(event, row.date, row.name, "Дата 4")}
+          >
+            {row.date[3]}
+          </td>
+          
         </tr>
       ))}
     </tbody>

@@ -3,16 +3,16 @@ import type { MouseEvent } from "react";
 export interface DataRow {
   id: symbol;
   name: string;
-  date1: string;
-  date2: string;
+  date: number[];
 }
+
 
 export interface TableProps {
   data: DataRow[];
   activeCell: HTMLElement | null;
   handleCellClick: (
     event: MouseEvent<HTMLTableCellElement>,
-    cellValue: string,
+    cellValue: number | string | number[],
     rowValue: string,
     columnHeader: string
   ) => void;
